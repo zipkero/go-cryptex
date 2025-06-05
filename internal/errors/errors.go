@@ -3,6 +3,7 @@ package errors
 import "errors"
 
 var (
+	ErrCipherGeneration     = errors.New("cipher generation failed")
 	ErrKeyGeneration        = errors.New("key generation failed")
 	ErrInvalidKeySize       = errors.New("invalid key size")
 	ErrInvalidIVSize        = errors.New("invalid IV size")
