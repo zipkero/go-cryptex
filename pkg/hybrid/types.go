@@ -1,6 +1,9 @@
 package hybrid
 
-import "crypto/rsa"
+import (
+	"crypto/rsa"
+	"go-cryptex/pkg/asymmetric"
+)
 
 type HybridMessage struct {
 	EncryptedSessionKey []byte         `json:"encrypted_session_key"`
@@ -16,13 +19,8 @@ type SessionKeyInfo struct {
 }
 
 type HybridCipher struct {
-	MyKeyPair     *KeyPairWrapper
+	MyKeyPair     *asymmetric.KeyPair
 	PeerPublicKey *rsa.PublicKey
-}
-
-type KeyPairWrapper struct {
-	PrivateKey *rsa.PrivateKey
-	PublicKey  *rsa.PublicKey
 }
 
 type EncryptionResult struct {
